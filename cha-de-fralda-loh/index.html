@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chá de Bebê</title>
+    <link rel="icon" href="https://i.ibb.co/SDtHGNqb/urso.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header class="header-festivo">
+            <img src="https://i.ibb.co/zhSQ5JsP/banner.png" alt="Banner Chá de Bebê" class="banner-top">
+            <h1>Chá do Nosso Bebê</h1>
+            <p>Sua presença é o nosso maior presente!</p>
+        </header>
+
+        <section id="step-1" class="card fade-in">
+            <h3>👋 Olá! Quem é você?</h3>
+            <p>Por favor, identifique-se para acessar a lista.</p>
+            <input type="text" id="input-nome" placeholder="Seu Nome Completo">
+            <input type="tel" id="input-tel" placeholder="Seu WhatsApp (com DDD)">
+            <button onclick="irParaLista()">Acessar Lista de Presentes</button>
+        </section>
+
+        <section id="step-2" class="card hidden">
+            
+            <div class="live-dashboard">
+                <h4>📊 O que já ganhamos:</h4>
+                <div id="ticker-itens" class="ticker-box">
+                    <p>Carregando presentes...</p>
+                </div>
+                <div class="total-pix-display">
+                    Total recebido em carinho (PIX): <strong id="ticker-pix">R$ 0,00</strong>
+                </div>
+            </div>
+            
+            <hr>
+
+            <div class="intro-selecao">
+                <h3>🎁 O que você gostaria de levar?</h3>
+                <p>Fique à vontade para selecionar itens da lista, adicionar algo diferente ou contribuir via PIX.</p>
+            </div>
+
+            <div id="grid-catalogo" class="grid-presentes">
+                </div>
+
+            <div class="custom-area">
+                <h4>✨ Vai levar algo diferente?</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 5px;">Escreva abaixo o que é (ex: Andador, Bercinho):</p>
+                <div class="input-group">
+                    <input type="text" id="custom-input" placeholder="Digite o nome do presente...">
+                    <button class="btn-sm" onclick="adicionarCustom()">Adicionar</button>
+                </div>
+                <div id="lista-custom" class="tags-container"></div>
+            </div>
+
+            <div class="pix-area">
+                <div class="pix-card" id="card-pix" onclick="togglePix()">
+                    <span class="icon">💸</span>
+                    <div class="pix-info">
+                        <strong>Quero fazer um PIX</strong>
+                        <small>Clique para contribuir com qualquer valor</small>
+                    </div>
+                </div>
+                
+                <div id="config-pix" class="hidden config-pix">
+                    <label>Qual valor deseja doar?</label>
+                    <input type="number" id="valor-pix-input" placeholder="R$ 0,00">
+                    
+                    <div class="pix-key-box">
+                        <small>Chave PIX:</small>
+                        <span id="chave-pix-texto">62981077385</span>
+                        <button class="btn-sm" onclick="copiarPix()">Copiar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="bar-confirmacao" class="bar-confirmacao hidden">
+            <div class="resumo">
+                <span id="contador-itens">0 itens selecionados</span>
+            </div>
+            <button onclick="finalizarEscolhas()" class="btn-finalizar">Confirmar Tudo ✅</button>
+        </div>
+
+        <section id="step-3" class="card hidden fade-in" style="text-align:center;">
+            <h2>🎉 Confirmado!</h2>
+            <p>Muito obrigado, <strong id="nome-final"></strong>!</p>
+            <p>Ficamos muito felizes com a sua participação.</p>
+            <br>
+            <button onclick="location.reload()" style="background:#ccc; color:#333;">Voltar ao início</button>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
