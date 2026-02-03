@@ -298,4 +298,25 @@ button:hover {
 @keyframes slideUp {
     from { transform: translateY(100%); }
     to { transform: translateY(0); }
+/* RODAPÉ CRÉDITOS */
+.rodape-creditos {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.rodape-creditos a {
+    color: #555;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.rodape-creditos a:hover {
+    color: var(--primary-dark); /* Usa a cor azul do tema */
+}
+
 }
